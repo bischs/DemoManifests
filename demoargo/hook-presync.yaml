@@ -7,6 +7,7 @@ metadata:
 spec:
   template:
     spec:
+      restartPolicy: "OnFailure"
       containers:
       - name: print-message
         image: alpine
