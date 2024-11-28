@@ -1,9 +1,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: demo-app-hook-presync
+  generateName: demo-app-hook-postsync
   annotations:
-    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook: PostSync
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
@@ -15,4 +15,4 @@ spec:
         command: 
           - "/bin/sh"
           - "-c"
-          - "email -s 'Application en cours de déploiement' simon.bisch@free.fr"
+          - "email -s 'Application OK' simon.bisch@free.fr"

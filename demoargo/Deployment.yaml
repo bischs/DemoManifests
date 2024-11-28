@@ -12,7 +12,6 @@ spec:
       labels:
         app: demo
     spec:
-      toto: test
       containers:
       - name: demo
         image: 989988/demoapp:1.0.0
@@ -28,10 +27,10 @@ spec:
           httpGet:
             path: /actuator/health
             port: 8080
-      - name: demo-fail
-        image: alpine
-        command: 
-          - "/bin/sh"
-          - "-c"
-          - "totoo"        
+#      - name: demo-fail
+#        image: alpine
+#        command: 
+#          - "/bin/sh"
+#          - "-c"
+#          - "totoo"        
         
