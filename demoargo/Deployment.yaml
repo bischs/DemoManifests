@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: demo
-        image: 989988/demoapp:1.0.999999
+        image: 989988/demoapp:1.0.0
         ports:
         - containerPort: 8080
         livenessProbe:
@@ -27,3 +27,10 @@ spec:
           httpGet:
             path: /actuator/health
             port: 8080
+      - name: demo-fail
+        image: alpine
+        command: 
+          - "/bin/sh"
+          - "-c"
+          - "totoo"        
+        
