@@ -8,10 +8,10 @@ spec:
   template:
     spec:
       containers:
-      - name: printMessage
+      - name: print-message
         image: alpine
         command: 
           - "sh"
           - "echo"
-        args: 
+        args:
           - "Cette application sera synchronisé avec un nouvel état désiré."
