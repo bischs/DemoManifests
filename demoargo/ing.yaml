@@ -13,4 +13,4 @@ spec:
           service:
             name: demo-service
             port:
-              number: 9092
+              number: 80
