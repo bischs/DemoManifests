@@ -12,7 +12,7 @@ spec:
       - name: print-message
         image: alpine
         command: 
-          - "sh"
+          - "/bin/sh -c"
           - "echo"
         args:
           - "Cette application sera synchronisé avec un nouvel état désiré."
