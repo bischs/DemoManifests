@@ -4,7 +4,7 @@ metadata:
   generateName: demo-app-hook-postsync
   annotations:
     argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    #argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
@@ -15,4 +15,4 @@ spec:
         command: 
           - "/bin/sh"
           - "-c"
-          - "email -s 'Application OK' simon.bisch@free.fr"
+          - "echo 'Application OK'"
