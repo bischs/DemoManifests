@@ -16,14 +16,14 @@ spec:
       - name: demo
         image: 989988/demoapp:1.0.0
         ports:
-        - containerPort: 8181
+        - containerPort: 8080
         livenessProbe:
           httpGet:
             path: /actuator/health
-            port: 8181
+            port: 8080
           initialDelaySeconds: 60
           periodSeconds: 10
         readinessProbe:
           httpGet:
             path: /actuator/health
-            port: 8181
+            port: 8080
