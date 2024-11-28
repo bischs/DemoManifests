@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo
+  namespace: argocd
+spec: 
+  project: default
+  source:
+    repoURL: https://github.com/bischs/DemoManifests.git
+    targetRevision: HEAD
+    path: demoargo
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
