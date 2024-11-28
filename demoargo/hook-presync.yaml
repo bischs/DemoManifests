@@ -15,4 +15,4 @@ spec:
         command: 
           - "/bin/sh"
           - "-c"
-          - "mailx -s 'Application OK' simon.bisch@free.fr"
+          - "echo 'ApplicationOK'"
