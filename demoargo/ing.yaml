@@ -4,10 +4,10 @@ metadata:
   name: demo-ingress
 spec:
   rules:
-  - host: localhost
+  - host: test-app.local
     http:
       paths:
-      - path: /demo-app
+      - path: /
         pathType: ImplementationSpecific
         backend:
           service:
