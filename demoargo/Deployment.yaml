@@ -12,6 +12,7 @@ spec:
       labels:
         app: demo
     spec:
+      toto: test
       containers:
       - name: demo
         image: 989988/demoapp:1.0.0
