@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: demo-deployment
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: demo
@@ -16,14 +16,14 @@ spec:
       - name: demo
         image: 989988/demoapp:1.0.0
         ports:
-        - containerPort: 8080
+        - containerPort: 8181
         livenessProbe:
           httpGet:
             path: /actuator/health
-            port: 8080
+            port: 8181
           initialDelaySeconds: 60
           periodSeconds: 10
         readinessProbe:
           httpGet:
             path: /actuator/health
-            port: 8080
+            port: 8181
