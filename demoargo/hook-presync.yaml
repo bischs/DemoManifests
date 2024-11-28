@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: demo-app-hook-presync
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    spec:
+      containers:
+      - name: Print Message
+        image: alpine
+        command: |
+          echo "L’application sera synchronisé avec un nouvel état désiré."
