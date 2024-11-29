@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: argocd
+data:
+  policy.master.csv: |
+    p, sim, applications, *, *, allow
+    p, sim, projects, *, *, allow
+    p, sim, repositories, *, *, allow
+  policy.deployer.csv: |
+    p, deploy-agent, applications, get, *, allow
+    p, deploy-agent, applications, override, *, allow
+    p, deploy-agent, applications, sync, *, allow
+  policy.springapp.csv: | 
+    p, sim, spring-apps:*,*,*,* allow
+  policy.default: role:readonly

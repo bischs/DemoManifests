@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: spring-apps
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Spring Apps Project Sim
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: spring-apps-dev
+    server: https://kubernetes.default.svc
+  roles:
+  - name: read-only
+    description: Read-only privileges to spring-apps
+    policies:
+    - p, proj:spring-apps:read-only, applications, get, spring-app/*, allow
+  - name: ci-role
+    description: Sync privileges for guestbook-dev
+    policies:
+    - p, proj:spring-apps:ci-role, applications, sync, spring-apps/guestbook-dev, allow
+  - name: admin-role
+    description: adminprivileges for sim
+    policies:
+    - p, proj:spring-apps:admin-role, *, *, spring-apps/g*, allow
