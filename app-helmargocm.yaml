@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helmargocm
+  namespace: argocd
+spec: 
+  project: spring-apps
+  source:
+    repoURL: https://github.com/bischs/argocm.git
+    targetRevision: HEAD
+    path: app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spring-apps-dev
