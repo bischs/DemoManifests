@@ -11,7 +11,7 @@ spec:
     path: demoargo
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: spring-apps-dev
   syncPolicy:
     automated:
       selfHeal: true

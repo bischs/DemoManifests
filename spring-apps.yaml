@@ -14,14 +14,21 @@ spec:
     server: https://kubernetes.default.svc
   roles:
   - name: read-only
-    description: Read-only privileges to spring-apps
+    description: Read-only privileges to guest
     policies:
     - p, proj:spring-apps:read-only, applications, get, spring-app/*, allow
+    groups:
+      - guest
   - name: ci-role
-    description: Sync privileges for guestbook-dev
+    description: Sync privileges for deploy-agent
     policies:
-    - p, proj:spring-apps:ci-role, applications, sync, spring-apps/guestbook-dev, allow
+    - p, proj:spring-apps:ci-role, applications, sync, spring-apps/*, allow
+    groups:
+      - deploy-agent
+      - guest
   - name: admin-role
     description: adminprivileges for sim
     policies:
-    - p, proj:spring-apps:admin-role, *, *, spring-apps/g*, allow
+    - p, proj:spring-apps:admin-role, *, *, spring-apps/*, allow
+    groups:
+      - sim
