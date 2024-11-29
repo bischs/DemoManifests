@@ -11,13 +11,30 @@ spec:
     path: demohelmchart
     helm:
       releaseName: helmargo
-      image.tag: 2.0.0
       valueFiles:
         - values.yaml
         - dev-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: spring-apps-dev
-  #syncPolicy:
+  syncPolicy:
+    syncOptions:
+    - RespectIgnoreDifferences=true
+
+  ignoreDifferences:
+    - group: apps
+      kind: Secret
+      jqPathExpressions:
+        - '.data.color'
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/containers/image
+      #jqPathExpressions:
+        #- '.spec.containers[0].image'
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
   #  automated:
   #    selfHeal: true
