@@ -1,0 +1,4 @@
+apiVersion: v2
+name: DemoApp
+description: A Helm chart for Kubernetes
+version: 1.0.0

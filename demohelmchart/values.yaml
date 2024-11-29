@@ -1,0 +1,10 @@
+# values.yaml
+replicaCount: 2
+image:
+  repository: 989988/demoapp
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+colorSecretName: "color-secret"
+appConfigName: "app-config"
