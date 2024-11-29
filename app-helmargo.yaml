@@ -11,12 +11,13 @@ spec:
     path: demohelmchart
     helm:
       releaseName: helmargo
+      image.tag: 2.0.0
       valueFiles:
         - values.yaml
         - dev-values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: spring-apps-dev
-  syncPolicy:
-    automated:
-      selfHeal: true
+  #syncPolicy:
+  #  automated:
+  #    selfHeal: true
